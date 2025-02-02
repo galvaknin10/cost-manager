@@ -1,0 +1,74 @@
+http://localhost:5000
+
+
+testing getting the about
+-------------------------
+url=http://localhost:5000/api/about/
+data.status_code=200
+b'[{"first_name":"Gal","last_name":"Vaknin"},{"first_name":"Harel","last_name":"Attia"}]'
+data.text=[{"first_name":"Gal","last_name":"Vaknin"},{"first_name":"Harel","last_name":"Attia"}]
+[{'first_name': 'Gal', 'last_name': 'Vaknin'}, {'first_name': 'Harel', 'last_name': 'Attia'}]
+
+
+testing getting the report - 1
+------------------------------
+url=http://localhost:5000/api/report/?id=123123&year=2025&month=2
+data.status_code=200
+b'{"userid":123123,"year":2025,"month":2,"costs":[],"updatedAt":"2025-02-02T09:47:46.850Z","_id":"679f3f4210101f2477c02d1b","__v":0}'
+data.text={"userid":123123,"year":2025,"month":2,"costs":[],"updatedAt":"2025-02-02T09:47:46.850Z","_id":"679f3f4210101f2477c02d1b","__v":0}
+Last Updated At: 2025-02-02T09:47:46.850Z
+
+
+
+testing adding cost item
+----------------------------------
+url=http://localhost:5000/api/add/
+data.status_code=201
+b'{"description":"milk 9","category":"food","userid":123123,"sum":8,"date":"2025-02-02T09:47:47.075Z","_id":"679f3f4310101f2477c02d1d","__v":0}'
+
+
+testing getting the report - 2
+------------------------------
+url=http://localhost:5000/api/report/?id=123123&year=2025&month=2
+data.status_code=200
+b'{"_id":"679f3f4210101f2477c02d1b","userid":123123,"year":2025,"month":2,"costs":{"food":[{"sum":8,"description":"milk 9","day":2}],"health":[],"housing":[],"sport":[],"education":[]},"updatedAt":"2025-02-02T09:47:48.170Z","__v":0}'
+data.text={"_id":"679f3f4210101f2477c02d1b","userid":123123,"year":2025,"month":2,"costs":{"food":[{"sum":8,"description":"milk 9","day":2}],"health":[],"housing":[],"sport":[],"education":[]},"updatedAt":"2025-02-02T09:47:48.170Z","__v":0}
+Last Updated At: 2025-02-02T09:47:48.170Z
+
+
+
+testing adding cost item
+----------------------------------
+url=http://localhost:5000/api/add/
+data.status_code=201
+b'{"description":"milk 17","category":"food","userid":123123,"sum":8,"date":"2025-02-02T09:47:48.366Z","_id":"679f3f4410101f2477c02d23","__v":0}'
+
+
+testing getting the report - 3
+------------------------------
+url=http://localhost:5000/api/report/?id=123123&year=2025&month=2
+data.status_code=200
+b'{"_id":"679f3f4210101f2477c02d1b","userid":123123,"year":2025,"month":2,"costs":{"food":[{"sum":8,"description":"milk 9","day":2},{"sum":8,"description":"milk 17","day":2}],"health":[],"housing":[],"sport":[],"education":[]},"updatedAt":"2025-02-02T09:47:49.458Z","__v":0}'
+data.text={"_id":"679f3f4210101f2477c02d1b","userid":123123,"year":2025,"month":2,"costs":{"food":[{"sum":8,"description":"milk 9","day":2},{"sum":8,"description":"milk 17","day":2}],"health":[],"housing":[],"sport":[],"education":[]},"updatedAt":"2025-02-02T09:47:49.458Z","__v":0}
+Last Updated At: 2025-02-02T09:47:49.458Z
+
+
+
+Testing GET /api/users/123123
+------------------------------
+URL: http://localhost:5000/api/users/123123
+Status Code: 200
+Response: {"id":123123,"first_name":"mosh","last_name":"israeli","total":16}
+{'id': 123123, 'first_name': 'mosh', 'last_name': 'israeli', 'total': 16}
+
+
+testing getting the report - 4
+------------------------------
+url=http://localhost:5000/api/report/?id=123123&year=2025&month=2
+data.status_code=200
+b'{"_id":"679f3f4210101f2477c02d1b","userid":123123,"year":2025,"month":2,"costs":{"food":[{"sum":8,"description":"milk 9","day":2},{"sum":8,"description":"milk 17","day":2}],"health":[],"housing":[],"sport":[],"education":[]},"updatedAt":"2025-02-02T09:47:49.458Z","__v":0}'
+data.text={"_id":"679f3f4210101f2477c02d1b","userid":123123,"year":2025,"month":2,"costs":{"food":[{"sum":8,"description":"milk 9","day":2},{"sum":8,"description":"milk 17","day":2}],"health":[],"housing":[],"sport":[],"education":[]},"updatedAt":"2025-02-02T09:47:49.458Z","__v":0}
+Last Updated At: 2025-02-02T09:47:49.458Z
+
+
+
