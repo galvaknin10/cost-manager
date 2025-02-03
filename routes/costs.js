@@ -21,14 +21,14 @@ router.post("/add", async (req, res) => {
         // Extract required fields from request body
         const { description, category, userid, sum, date } = req.body;
 
-        // Convert to match the schema definition 
-        const sumNum = Number(sum);
-        const dateDate = date ? new Date(date) : new Date();
-
         // Validate required fields (date is optional)
         if (!description || !category || !userid || !sum) {
             return res.status(400).json({ error: "All fields except date are required" });
         }
+
+        // Convert to match the schema definition 
+        const sumNum = Number(sum);
+        const dateDate = date ? new Date(date) : new Date();
 
         // Create a new cost entry with either the provided date or the current timestamp
         const newCost = new Cost({

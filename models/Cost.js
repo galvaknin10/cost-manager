@@ -19,7 +19,7 @@ const costSchema = new mongoose.Schema({
   sum: { type: Number, required: true },
 
   // Date of the expense, defaults to the current timestamp if not provided
-  date: { type: Date, required: false},
+  date: { type: Date, required: true},
 });
 
 // Export the Cost model based on the schema
