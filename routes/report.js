@@ -25,11 +25,8 @@ const router = express.Router();
 // GET: Retrieve a monthly report
 router.get("/report", async (req, res) => {
   try {
-    const id = Number(req.query.id);
-    const year = Number(req.query.year);
-    const month = Number(req.query.month);
-
-
+    const { id, year, month } = req.query;
+    
     if (!id || !year || !month) {
       return res.status(400).json({ error: "User ID, year, and month are required" });
     }
@@ -56,6 +53,7 @@ router.get("/report", async (req, res) => {
  * @param {number} month - The month of the report.
  * @returns {Object} The newly generated report.
  */
+
 const generateReport = async (userid, year, month) => {
   // Initialize costs with empty categories
   const groupedCosts = {
@@ -66,21 +64,16 @@ const generateReport = async (userid, year, month) => {
     education: []
   };
 
-  // Retrieve all costs for the specified user and month
-  const costs = await Cost.find({ userid })
-    .where("date")
-    .gte(new Date(year, month - 1, 1)) // First day of the month
-    .lt(new Date(year, month, 1)); // First day of the next month
+  // Retrieve all costs for the specified user (without filtering by date)
+  const costs = await Cost.find({ userid });
 
-  // Group costs by category
-  ["food", "health", "housing", "sport", "education"].forEach((category) => {
-    groupedCosts[category] = costs
-      .filter((cost) => cost.category === category)
-      .map((cost) => ({
-        sum: cost.sum,
-        description: cost.description,
-        day: new Date(cost.date).getDate(),
-      }));
+  // Iterate over all costs and categorize them
+  costs.forEach((cost) => {
+    groupedCosts[cost.category].push({
+      sum: cost.sum,
+      description: cost.description,
+      day: new Date(cost.date).getDate(),
+    });
   });
 
   // Create and save the new report
@@ -95,3 +88,4 @@ const generateReport = async (userid, year, month) => {
 };
 
 module.exports = router;
+

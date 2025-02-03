@@ -5,6 +5,7 @@ filename = input("filename=")
 
 line = "https://cost-manager-api-58x9.onrender.com"
 
+
 output = open(filename, "w")
 
 sys.stdout = output
@@ -153,7 +154,7 @@ try:
     text = ""
     url = line + "/api/report/?id=123123&year=2025&month=3"
     data = requests.get(url)
-    
+
     print(data.json())
 
 
