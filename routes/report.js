@@ -25,7 +25,10 @@ const router = express.Router();
 // GET: Retrieve a monthly report
 router.get("/report", async (req, res) => {
   try {
-    const { id, year, month } = req.query;
+    const id = Number(req.query.id);
+    const year = Number(req.query.year);
+    const month = Number(req.query.month);
+
 
     if (!id || !year || !month) {
       return res.status(400).json({ error: "User ID, year, and month are required" });
