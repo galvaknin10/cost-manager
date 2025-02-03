@@ -20,10 +20,6 @@ try:
     url = line + "/api/about/"
     data = requests.get(url)
 
-    print("url=" + url)
-    print("data.status_code=" + str(data.status_code))
-    print(data.content)
-    print("data.text=" + data.text)
     print(data.json())
 
 except Exception as e:
@@ -42,14 +38,10 @@ try:
     text = ""
     url = line + "/api/report/?id=123123&year=2025&month=2"
     data = requests.get(url)
-    report_data = data.json()
 
-    print("url=" + url)
-    print("data.status_code=" + str(data.status_code))
-    print(data.content)
-    print("data.text=" + data.text)
-    print("Last Updated At:", report_data.get("updatedAt", "N/A"))  # Printing `updatedAt`
-    print(text)
+    print(data.json())
+
+    
 
 except Exception as e:
     print("problem")
@@ -68,9 +60,7 @@ try:
     url = line + "/api/add/"
     data = requests.post(url, json={"userid": 123123, "description": "milk 9", "category": "food", "sum": 8})
 
-    print("url=" + url)
-    print("data.status_code=" + str(data.status_code))
-    print(data.content)
+    print(data.json())
 
 except Exception as e:
     print("problem")
@@ -88,14 +78,9 @@ try:
     text = ""
     url = line + "/api/report/?id=123123&year=2025&month=2"
     data = requests.get(url)
-    report_data = data.json()
 
-    print("url=" + url)
-    print("data.status_code=" + str(data.status_code))
-    print(data.content)
-    print("data.text=" + data.text)
-    print("Last Updated At:", report_data.get("updatedAt", "N/A"))  # Printing `updatedAt`
-    print(text)
+    print(data.json())
+
 
 except Exception as e:
     print("problem")
@@ -114,9 +99,7 @@ try:
     url = line + "/api/add/"
     data = requests.post(url, json={"userid": 123123, "description": "milk 17", "category": "food", "sum": 8})
 
-    print("url=" + url)
-    print("data.status_code=" + str(data.status_code))
-    print(data.content)
+    print(data.json())
 
 except Exception as e:
     print("problem")
@@ -134,14 +117,8 @@ try:
     text = ""
     url = line + "/api/report/?id=123123&year=2025&month=2"
     data = requests.get(url)
-    report_data = data.json()
 
-    print("url=" + url)
-    print("data.status_code=" + str(data.status_code))
-    print(data.content)
-    print("data.text=" + data.text)
-    print("Last Updated At:", report_data.get("updatedAt", "N/A"))  # Printing `updatedAt`
-    print(text)
+    print(data.json())
 
 except Exception as e:
     print("problem")
@@ -157,12 +134,9 @@ print("------------------------------")
 
 try:
     url = line + "/api/users/123123"
-    response = requests.get(url)
+    date = requests.get(url)
 
-    print("URL:", url)
-    print("Status Code:", response.status_code)
-    print("Response:", response.text)
-    print(response.json())
+    print(date.json())
 
 except Exception as e:
     print("Problem:", e)
@@ -181,12 +155,7 @@ try:
     data = requests.get(url)
     report_data = data.json()
 
-    print("url=" + url)
-    print("data.status_code=" + str(data.status_code))
-    print(data.content)
-    print("data.text=" + data.text)
-    print("Last Updated At:", report_data.get("updatedAt", "N/A"))  # Printing `updatedAt`
-    print(text)
+
 
 except Exception as e:
     print("problem")
