@@ -13,9 +13,6 @@ const reportSchema = new mongoose.Schema({
 
   // Object storing categorized costs (grouped by "food", "health", etc.)
   costs: { type: Object, required: true },
-
-  // Timestamp for tracking when the report was last updated
-  updatedAt: { type: Date, default: Date.now }
 });
 
 // Export the Report model based on the schema

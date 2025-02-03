@@ -3,7 +3,7 @@ import requests
 
 filename = input("filename=")
 
-line = "http://localhost:5000"
+line = "https://cost-manager-api-58x9.onrender.com"
 
 output = open(filename, "w")
 
@@ -177,7 +177,7 @@ print("------------------------------")
 
 try:
     text = ""
-    url = line + "/api/report/?id=123123&year=2025&month=2"
+    url = line + "/api/report/?id=123123&year=2025&month=3"
     data = requests.get(url)
     report_data = data.json()
 

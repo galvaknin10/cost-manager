@@ -2,7 +2,7 @@
 # import requests
 
 # # Base URL for the API endpoints
-# BASE_URL = "http://localhost:5000/api"
+# BASE_URL = "https://cost-manager-api-58x9.onrender.com/api"
 
 # class TestCostManagerAPI(unittest.TestCase):
 
