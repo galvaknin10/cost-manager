@@ -39,7 +39,6 @@ router.get("/report", async (req, res) => {
     }
 
     // If no report exists, generate a new one
-    console.log(`Creating new report for user ${id}, month ${month}, year ${year}`);
     const newReport = await generateReport(id, year, month);
     res.status(200).json(newReport);
   } catch (error) {

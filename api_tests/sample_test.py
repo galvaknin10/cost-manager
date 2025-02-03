@@ -153,7 +153,8 @@ try:
     text = ""
     url = line + "/api/report/?id=123123&year=2025&month=3"
     data = requests.get(url)
-    report_data = data.json()
+    
+    print(data.json())
 
 
 
