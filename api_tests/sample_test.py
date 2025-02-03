@@ -5,7 +5,6 @@ filename = input("filename=")
 
 line = "https://cost-manager-api-58x9.onrender.com"
 
-
 output = open(filename, "w")
 
 sys.stdout = output

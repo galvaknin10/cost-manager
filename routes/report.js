@@ -7,9 +7,9 @@ const router = express.Router();
 /**
  * @route GET /api/report
  * @description Retrieves a monthly report for a user.
- * @param {number} req.query.id - The user ID for the report.
- * @param {number} req.query.year - The year of the report.
- * @param {number} req.query.month - The month of the report (1 = January, 2 = February, etc.).
+ * @param {string} req.query.id - The user ID for the report.
+ * @param {string} req.query.year - The year of the report.
+ * @param {string} req.query.month - The month of the report
  * @returns {Object} JSON response with the report details.
  * @throws {400} Missing required query parameters.
  * @throws {500} Internal Server Error.
@@ -26,7 +26,7 @@ const router = express.Router();
 router.get("/report", async (req, res) => {
   try {
     const { id, year, month } = req.query;
-    
+
     if (!id || !year || !month) {
       return res.status(400).json({ error: "User ID, year, and month are required" });
     }
@@ -48,9 +48,9 @@ router.get("/report", async (req, res) => {
 
 /**
  * Function to generate a new report.
- * @param {number} userid - The user ID.
- * @param {number} year - The year of the report.
- * @param {number} month - The month of the report.
+ * @param {string} userid - The user ID.
+ * @param {string} year - The year of the report.
+ * @param {string} month - The month of the report.
  * @returns {Object} The newly generated report.
  */
 
@@ -64,7 +64,7 @@ const generateReport = async (userid, year, month) => {
     education: []
   };
 
-  // Retrieve all costs for the specified user (without filtering by date)
+  // Retrieve all costs for the specified user
   const costs = await Cost.find({ userid });
 
   // Iterate over all costs and categorize them

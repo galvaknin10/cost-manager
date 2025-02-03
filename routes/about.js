@@ -1,5 +1,4 @@
 const express = require("express");
-
 const router = express.Router();
 
 // Hardcoded team members data
@@ -8,7 +7,7 @@ const teamMembers = [
   { first_name: "Harel", last_name: "Attia" }
 ];
 
-// GET: Retrieve the team members (developers)
+// GET: Retrieve the team members
 router.get("/about", (req, res) => {
   res.json(teamMembers);
 });

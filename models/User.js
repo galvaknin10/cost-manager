@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // Define the schema for storing user information
 const userSchema = new mongoose.Schema({
   // Unique user ID 
-  id: { type: Number, required: true, unique: true },
+  id: { type: String, required: true, unique: true },
 
   // User's first name 
   first_name: { type: String, required: true },

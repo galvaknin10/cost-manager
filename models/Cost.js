@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 // Define the schema for cost items
 const costSchema = new mongoose.Schema({
+  // Short description of the cost item
   description: { type: String, required: true },
 
   // Category of the expense
@@ -12,13 +13,13 @@ const costSchema = new mongoose.Schema({
   },
 
   // User ID to associate the cost with a specific user
-  userid: { type: Number, required: true },
+  userid: { type: String, required: true },
 
   // The amount spent
   sum: { type: Number, required: true },
 
   // Date of the expense, defaults to the current timestamp if not provided
-  date: { type: Date, default: Date.now },
+  date: { type: Date, required: false},
 });
 
 // Export the Cost model based on the schema
